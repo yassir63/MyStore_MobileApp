@@ -21,43 +21,50 @@ import {
 } from 'react-native';
 
 import { axiosClient } from '../Network/axios';
-// import { signin , signup, signout } from '../Network/Auth/auth'
+// import { signout } from '../Network/Auth/auth'
 // import { signin , signup, signout } from '../Network/Auth/Context/AuthContext'
 
 import { AuthContext } from '../Context/AuthContext';
 
 
-export function LogIn({ navigation }) {
 
-  const {signin} = useContext(AuthContext)
+export function Register({ navigation }) {
+  const {signup} = useContext(AuthContext)
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
   
-    const data = [{"email":email,"password":password}]
-    console.log(data)
+
+  const data = [{"email":email,"password":password}]
+
+
+
+  function CheckPassword(email,password,confirmpassword,{navigation}){
+
+
+    if(password === confirmpassword ){
   
+      signup(email,password,{navigation});
+      
+    }else{
+      alert("Please Enter the same Password !");
+    }
+  
+  }
+
     return (
-      <SafeAreaView style={styles.container}>
-        
-      <KeyboardAvoidingView behavior='padding'
-        keyboardVerticalOffset={
-        Platform.select({
-           ios: () => 0,
-           android: () => -300
-        })()
-      }>
-          <View style={styles.container}>
-          <Image style={{
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+<Image style={{
                   resizeMode: "cover",
                   height: 130,
                   width: 250,
                   position: 'relative',
                   marginBottom:50,
+                  marginTop:-10
                               
                }} source = {require("../../assets/logo.png")}/>
-      
-          <View style={styles.inputView}>
+<View style={styles.inputView}>
            <TextInput
             style={styles.TextInput}
             placeholder="Email     "
@@ -77,26 +84,26 @@ export function LogIn({ navigation }) {
             onChangeText={(password) => setPassword(password)}
           />
         </View>
-        <TouchableOpacity>
-              <Text>Forgot Password?</Text>
-            </TouchableOpacity>
-            
-        <TouchableOpacity style={styles.loginBtn} 
-        onPress={async () => await signin(email,password,{ navigation })}
-        // onPress={() => {login()}}
-        >
-              <Text style={styles.loginText}>LOGIN</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-              <Text style={{marginTop:30}}>New Here?</Text>
-            </TouchableOpacity>
+
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+      
+            placeholder="Confirm Password"
+            placeholderTextColor="#003f5c"
+            secureTextEntry={true}
+            onChangeText={(confirmpassword) => setConfirmPassword(confirmpassword)}
+          />
         </View>
         
-        </KeyboardAvoidingView>
-      
-              <StatusBar style="auto" />
-             
-        </SafeAreaView>
+        <TouchableOpacity style={styles.loginBtn} 
+        // onPress={() => signup(email,password,{ navigation })}
+        onPress={() => CheckPassword(email,password,confirmpassword,{ navigation })}
+
+        // onPress={() => {logout()}}
+        >
+              <Text style={styles.loginText}>SIGN UP</Text>
+            </TouchableOpacity>
+      </View>
     );
   }
-  

@@ -13,6 +13,7 @@ import { Request, Response } from 'express';
 @Injectable()
 export class AuthService {
   constructor(private prisma: PrismaService, private jwt: JwtService) {}
+  
 
   async signup(dto: AuthDto) {
     const { email, password } = dto;
@@ -70,13 +71,13 @@ export class AuthService {
 
     res.cookie('token', token, {});
 
-    return res.send({ message: 'Logged in succefully' });
+    return res.send({ message: 'Logged in succesfully' });
   }
 
   async signout(req: Request, res: Response) {
     res.clearCookie('token');
 
-    return res.send({ message: 'Logged out succefully' });
+    return res.send({ message: 'Logged out succesfully' });
   }
 
   async hashPassword(password: string) {
@@ -97,6 +98,7 @@ export class AuthService {
 
     const token = await this.jwt.signAsync(payload, {
       secret: jwtSecret,
+      expiresIn: '31d'
     });
 
     return token;

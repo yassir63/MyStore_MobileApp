@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState,useContext} from 'react';
 import { styles } from './Styles'
 
 import type {Node} from 'react';
@@ -21,14 +21,18 @@ import {
 } from 'react-native';
 
 import { axiosClient } from '../Network/axios';
-import { signout } from '../Network/Auth/auth'
+import { AuthContext } from '../Context/AuthContext';
 
 export function HomePage({ navigation }) {
+  const {signout} = useContext(AuthContext)
+
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Welcome To The Home Screen ! </Text>
         <TouchableOpacity style={styles.loginBtn} 
         onPress={() => signout({ navigation })}
+        // onPress={() => {logout()}}
+
         >
               <Text style={styles.loginText}>LOGOUT</Text>
             </TouchableOpacity>

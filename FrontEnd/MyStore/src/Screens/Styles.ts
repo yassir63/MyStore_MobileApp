@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
      height:50,
      alignItems:"center",
      justifyContent:"center",
-     marginTop:40,
+     marginTop:30,
      backgroundColor:"#FF1493",
    },
     inputView: {
