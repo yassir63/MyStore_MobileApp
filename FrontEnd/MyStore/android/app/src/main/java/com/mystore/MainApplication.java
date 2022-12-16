@@ -1,5 +1,5 @@
 package com.mystore;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
+
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -30,13 +30,6 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           return packages;
         }
-      //   protected List<ReactPackage> getPackages() {
-      //     return Arrays.<ReactPackage>asList(
-      //             new MainReactPackage(),
-      //     new SplashScreenReactPackage()  //here
-      //     );
-      // }
-      
 
         @Override
         protected String getJSMainModuleName() {
