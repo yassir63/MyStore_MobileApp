@@ -1,4 +1,5 @@
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 import type {Node} from 'react';
 
 import axios from 'axios';
@@ -22,6 +23,9 @@ import { AuthProvider } from "./src/Context/AuthContext"
 import AppNav from './src/Navigation/AppNav'
  
 export default function App() {
+  useEffect(()=>{
+    SplashScreen.hide();
+  },[])
 return (
 //   <NavigationContainer>
 //   <Stack.Navigator initialRouteName="LogIn">
@@ -32,6 +36,7 @@ return (
 
 <AuthProvider>
   <AppNav />
+
 </AuthProvider>
 
 );
