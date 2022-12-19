@@ -8,11 +8,56 @@ datasource db {
 }
 
 model User {
-  id    String  @unique @default(uuid()) 
-  email String  @unique
-  hashedPassword String 
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt()
+  id             String   @unique @default(uuid())
+  email          String   @unique
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  updateAt       DateTime @updatedAt()
 }
 
+model Produit {
+  id_produit       Int                @id @default(autoincrement())
+  nom              String             @db.VarChar(256)
+  marque           String             @db.VarChar(256)
+  categorie        String             @db.VarChar(256)
+  Prix_vente       Float
+  Prix_achat       Float
+  date_expiration  DateTime
+  quantite         Int
+  libelle          Boolean
+  description      String             @db.Text
+  image            Bytes
+  produits_achetes produits_achetes[]
+}
 
+model Achat {
+  id_achat         Int                @id @default(autoincrement())
+  montant          Float
+  date_achat       DateTime
+  paiemenet        Boolean
+  achat_credit     achat_credit[]
+  produits_achetes produits_achetes[]
+}
+
+model achat_credit {
+  achat         Achat    @relation(fields: [id_achat], references: [id_achat])
+  id_achat      Int      @unique
+  nom_crediteur String   @db.VarChar(256)
+  Date_limite   DateTime
+}
+
+model produits_achetes {
+  achat      Achat   @relation(fields: [id_achat], references: [id_achat])
+  id_achat   Int
+  produit    Produit @relation(fields: [id_produit], references: [id_produit])
+  id_produit Int
+
+  @@id([id_achat, id_produit])
+}
+
+model charges {
+  id_charge Int      @id @default(autoincrement())
+  categorie String   @db.VarChar(256)
+  montant   Float
+  date      DateTime
+}
