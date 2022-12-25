@@ -61,7 +61,7 @@ export function LogIn({ navigation }) {
            <TextInput
             style={styles.TextInput}
             placeholder="Email     "
-            placeholderTextColor="#003f5c"
+            // placeholderTextColor="#003f5c"
             onChangeText={(email) => setEmail(email)}
           />
         </View>
@@ -72,7 +72,8 @@ export function LogIn({ navigation }) {
             style={styles.TextInput}
       
             placeholder="Password"
-            placeholderTextColor="#003f5c"
+            // placeholderTextColor="#003f5c"
+
             secureTextEntry={true}
             onChangeText={(password) => setPassword(password)}
           />

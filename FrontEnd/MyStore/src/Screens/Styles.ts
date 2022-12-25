@@ -35,5 +35,6 @@ export const styles = StyleSheet.create({
       padding: 10,
       marginLeft: 20,
       color:"white",
+      fontWeight:'bold'
     },
   });
