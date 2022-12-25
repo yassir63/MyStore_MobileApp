@@ -13,6 +13,9 @@ model User {
   hashedPassword String
   createdAt      DateTime @default(now())
   updateAt       DateTime @updatedAt()
+  Achats Achat[]
+  Produits Produit[]
+  Charges charges[]
 }
 
 model Produit {
@@ -26,7 +29,9 @@ model Produit {
   quantite         Int
   libelle          Boolean
   description      String             @db.Text
-  image            Bytes
+  image            Bytes?
+  user User @relation(fields: [id_user],references: [id])
+  id_user String
   produits_achetes produits_achetes[]
 }
 
@@ -35,6 +40,8 @@ model Achat {
   montant          Float
   date_achat       DateTime
   paiemenet        Boolean
+  user User @relation(fields: [id_user],references: [id])
+  id_user String
   achat_credit     achat_credit[]
   produits_achetes produits_achetes[]
 }
@@ -60,4 +67,6 @@ model charges {
   categorie String   @db.VarChar(256)
   montant   Float
   date      DateTime
+  user User @relation(fields: [id_user],references: [id])
+  id_user String
 }
