@@ -9,8 +9,12 @@ export class CreditController {
 
   @Post()
   create(@Body() createCreditDto: CreateCreditDto) {
-    return this.creditService.create(createCreditDto);
-  }
+    try {
+      return this.creditService.create(createCreditDto)
+    } catch (error) {
+      console.log(error);
+      return null;
+    }  }
 
   @Get()
   findAll() {
@@ -23,8 +27,8 @@ export class CreditController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCreditDto: UpdateCreditDto) {
-    return this.creditService.update(+id, updateCreditDto);
+  update(@Param('id') id: string, @Body() createCreditDto: CreateCreditDto) {
+    return this.creditService.update(+id, createCreditDto );
   }
 
   @Delete(':id')
