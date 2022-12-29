@@ -1,27 +1,14 @@
-import React ,{useState, useContext}from 'react';
-import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    useColorScheme,
-    View,
-    TextInput,
-    Image,
-    KeyboardAvoidingView,
-    TouchableOpacity,
-    ImageBackground,
-    Button,
-  } from 'react-native';
+import React from 'react'
+import AppBottomStack from './AppBottomStack'
+import {useState, useContext}from 'react';
+import {View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import  {AuthStack}  from './AuthStack'
 import  {AppStack}  from './AppStack'
 import { AuthContext } from '../Context/AuthContext';
 import { ActivityIndicator } from 'react-native';
 
-export default function AppNav() {
-
+function AppNav_dup() {
     const {isLoading,userToken} = useContext(AuthContext)
 
     if(isLoading){
@@ -35,7 +22,10 @@ export default function AppNav() {
 
     return(
         <NavigationContainer>
-        {userToken !== null ? <AppStack /> : <AuthStack />}
-      </NavigationContainer>
+            {userToken !== null ? <AppBottomStack/> : <AppBottomStack/>}
+        </NavigationContainer>
+
     );
 }
+
+export default AppNav_dup
