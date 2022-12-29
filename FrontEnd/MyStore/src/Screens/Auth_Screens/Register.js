@@ -1,7 +1,7 @@
 import React , {useState,useContext} from 'react';
-import { styles } from './Styles'
+import { styles } from '../Styles'
 
-import type {Node} from 'react';
+// import type {Node} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
@@ -24,7 +24,7 @@ import { axiosClient } from '../Network/axios';
 // import { signout } from '../Network/Auth/auth'
 // import { signin , signup, signout } from '../Network/Auth/Context/AuthContext'
 
-import { AuthContext } from '../Context/AuthContext';
+import { AuthContext } from '../../Context/AuthContext';
 
 
 
@@ -63,7 +63,7 @@ export function Register({ navigation }) {
                   marginBottom:50,
                   marginTop:-10
                               
-               }} source = {require("../../assets/logo.png")}/>
+               }} source = {require("../../../assets/logo.png")}/>
 <View style={styles.inputView}>
            <TextInput
             style={styles.TextInput}

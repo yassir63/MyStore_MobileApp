@@ -8,7 +8,7 @@ import  {AppStack}  from './AppStack'
 import { AuthContext } from '../Context/AuthContext';
 import { ActivityIndicator } from 'react-native';
 
-function AppNav_dup() {
+function AppNav() {
     const {isLoading,userToken} = useContext(AuthContext)
 
     if(isLoading){
@@ -22,10 +22,10 @@ function AppNav_dup() {
 
     return(
         <NavigationContainer>
-            {userToken !== null ? <AppBottomStack/> : <AppBottomStack/>}
+            {userToken !== null ? <AppBottomStack/> : <AuthStack/>}
         </NavigationContainer>
 
     );
 }
 
-export default AppNav_dup
+export default AppNav

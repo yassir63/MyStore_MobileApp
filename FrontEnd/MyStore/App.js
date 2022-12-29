@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { AuthProvider } from "./src/Context/AuthContext"
-import AppNav_dup from './src/Navigation/AppNav_dup'
+import AppNav from './src/Navigation/AppNav'
 
 export default function App() {
   useEffect(()=>{
@@ -16,7 +16,7 @@ return (
 // </NavigationContainer>
 
 <AuthProvider>
-  <AppNav_dup />
+  <AppNav />
 
 </AuthProvider>
 
