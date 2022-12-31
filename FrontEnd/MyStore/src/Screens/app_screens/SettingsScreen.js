@@ -1,9 +1,13 @@
 import React from 'react'
-import { View,Text } from 'react-native'
-function SettingsScreen({navigation}) {
+import { View,Text,Button } from 'react-native'
+import Header from './Header'
+function SettingsScreen() {
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1 }}>
+      <Header title="Settings" />
       <Text>Settings</Text>
+
 
     </View>
   )

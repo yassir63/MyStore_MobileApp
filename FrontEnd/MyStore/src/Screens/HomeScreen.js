@@ -1,7 +1,7 @@
 import React , {useState,useContext} from 'react';
 import { styles } from './Styles'
 
-import type {Node} from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
@@ -23,7 +23,7 @@ import {
 import { axiosClient } from '../Network/axios';
 import { AuthContext } from '../Context/AuthContext';
 
-export function HomePage({ navigation }) {
+export default function HomePage({ navigation }) {
   const {signout} = useContext(AuthContext)
 
     return (
