@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
-import { LogIn } from '../Screens/LogIn'
-import { Register } from '../Screens/Register'
+import { LogIn } from '../Screens/Auth_Screens/LogIn'
+import { Register } from '../Screens/Auth_Screens/Register'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
