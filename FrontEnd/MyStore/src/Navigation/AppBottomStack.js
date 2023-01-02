@@ -12,6 +12,8 @@ import { View,Text } from 'react-native';
 import ProfileRouter from './ProfileRouter';
 import Profile from './Profile';
 
+import ProductRoutes from '../Screens/app_screens/Product/ProductRoutes';
+
 const Home =()=>{
   return (
   <View>
@@ -46,7 +48,7 @@ function AppBottomStack() {
         tabBarInactiveTintColor: 'gray',
       })}
       > 
-        <Tab.Screen name='Settings' children={()=><ProfileRouter com={SettingsScreen}/> } options={{headerShown: false}} />
+        <Tab.Screen name='Products' children={()=><ProfileRouter title="Products" com={ProductRoutes}/> } options={{headerShown: false}} />
         <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
         <Tab.Screen name="details" component={DetailsScreen} options={{
             tabBarStyle: { display: "none" },
