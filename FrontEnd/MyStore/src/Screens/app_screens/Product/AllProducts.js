@@ -1,12 +1,12 @@
 import React from 'react'
 import { TextInput,Text,View,ScrollView ,Button,SafeAreaView,StyleSheet, TouchableNativeFeedback } from 'react-native'
 import { useNavigate } from 'react-router-native'
-import { axiosClient } from '../../../Network/axios';
 import { useEffect,useState } from 'react';
 
 import { findAll } from '../../../Network/lib/Product';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import ProductsBox from './ProductsBox';
 
 
 
@@ -53,22 +53,7 @@ function AllProducts() {
           </View>     
       </View>
       <View style={styles.box_container}>
-        <View style={styles.box_scroll_view_container}>
-        <ScrollView  contentContainerStyle={styles.box}>
-
-          {
-          data.map((val)=>{
-            return(
-              <TouchableNativeFeedback key={val["id_produit"]} onPress={()=>handle_presse(val["id_produit"])} onLongPress={()=>handle_long_presse(val["id_produit"])}>
-                <View  style={{padding:5}}>
-                  <AntDesign name='questioncircleo' size={56} style={{color:'dodgerblue'}}/>
-                  <Text style={styles.box_item_label}>{val["nom"]}</Text>
-                </View>
-            </TouchableNativeFeedback>
-            )
-          })}
-        </ScrollView >
-        </View>
+        <ProductsBox data={data} styles={box_styles} handle_presse={handle_presse} handle_long_presse={handle_long_presse} />
         <View style={{flex:1,alignItems:'center',justifyContent:'center',}}>
             <TouchableNativeFeedback onPress= {()=>{navigate('/create')}} >
               <View>
@@ -92,30 +77,6 @@ const styles = StyleSheet.create({
     paddingRight:'5%' ,
     
   },
-  box:{
-    width:'100%',
-    padding:10,
-    borderRadius: 20,
-    flexDirection:'row',
-    flexWrap:'wrap',    
-    backgroundColor:'#EBEBEB',   
-  },
-  box_scroll_view_container:{
-    height:'80%',
-    width:'90%',
-    borderRadius: 20,
-    backgroundColor:'#EBEBEB',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
-
-    elevation: 4,
-  },
-
   box_container:{
     flex:1,
     alignItems:'center',
@@ -145,14 +106,38 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
 
     elevation: 4,
-    },
+    }
+})
 
-  box_item_label:{
-    color:'black',
-    textAlign:'center',
-    marginTop:3
-    
-  }
+const box_styles = StyleSheet.create({
+  box_scroll_view_container:{
+      height:'80%',
+      width:'90%',
+      borderRadius: 20,
+      backgroundColor:'#EBEBEB',
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.23,
+      shadowRadius: 2.62,
   
+      elevation: 4,
+    },
+    box:{
+      width:'100%',
+      padding:10,
+      borderRadius: 20,
+      flexDirection:'row',
+      flexWrap:'wrap',    
+      backgroundColor:'#EBEBEB',   
+    },
+    box_item_label:{
+      color:'black',
+      textAlign:'center',
+      marginTop:3
+      
+    },
 })
 export default AllProducts
