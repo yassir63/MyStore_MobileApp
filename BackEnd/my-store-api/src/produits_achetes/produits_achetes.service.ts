@@ -1,26 +1,58 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProduitsAcheteDto } from './dto/create-produits_achete.dto';
 import { UpdateProduitsAcheteDto } from './dto/update-produits_achete.dto';
+import { PrismaService } from 'prisma/prisma.service';
 
 @Injectable()
 export class ProduitsAchetesService {
+
+  constructor(private readonly prismaService: PrismaService){}
+
   create(createProduitsAcheteDto: CreateProduitsAcheteDto) {
-    return 'This action adds a new produitsAchete';
+   
+    return this.prismaService.produits_achetes.create({
+      data: createProduitsAcheteDto,
+      });
+  }
+  
+
+  findAll(id: number) {
+    return this.prismaService.produits_achetes.findMany(
+      {
+        where: { id_achat: id },
+      }
+    );
   }
 
-  findAll() {
-    return `This action returns all produitsAchetes`;
+    //ATTENTION !!
+
+
+  findOne(idA: number,idP: number) {
+    return this.prismaService.produits_achetes.findMany({
+      where: { id_achat: idA , id_produit: idP },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} produitsAchete`;
+
+    //ATTENTION !!
+
+
+  update(idA: number,idP: number, createProduitsAcheteDto: CreateProduitsAcheteDto) {
+    return this.prismaService.produits_achetes.updateMany({
+      where: {
+        id_achat: idA , id_produit: idP
+      },
+      data: createProduitsAcheteDto,
+    });
   }
 
-  update(id: number, updateProduitsAcheteDto: UpdateProduitsAcheteDto) {
-    return `This action updates a #${id} produitsAchete`;
-  }
+  //ATTENTION !!
 
-  remove(id: number) {
-    return `This action removes a #${id} produitsAchete`;
+  remove(idA: number,idP: number) {
+    return this.prismaService.produits_achetes.deleteMany({
+      where: {
+        id_achat: idA , id_produit: idP
+      },
+    });  
   }
 }

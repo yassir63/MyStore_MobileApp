@@ -1,7 +1,7 @@
 import React , {useState,useContext} from 'react';
-import { styles } from './Styles'
+import { styles } from '../Styles'
 
-import type {Node} from 'react';
+// import type {Node} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
@@ -20,11 +20,11 @@ import {
   Button
 } from 'react-native';
 
-import { axiosClient } from '../Network/axios';
+import { axiosClient } from '../../Network/axios';
 // import { signin , signup, signout } from '../Network/Auth/auth'
 // import { signin , signup, signout } from '../Network/Auth/Context/AuthContext'
 
-import { AuthContext } from '../Context/AuthContext';
+import { AuthContext } from '../../Context/AuthContext';
 
 
 export function LogIn({ navigation }) {
@@ -55,7 +55,7 @@ export function LogIn({ navigation }) {
                   position: 'relative',
                   marginBottom:50,
                               
-               }} source = {require("../../assets/logo.png")}/>
+               }} source = {require("../../../assets/logo.png")}/>
       
           <View style={styles.inputView}>
            <TextInput

@@ -12,23 +12,23 @@ export class ProduitsAchetesController {
     return this.produitsAchetesService.create(createProduitsAcheteDto);
   }
 
-  @Get()
-  findAll() {
-    return this.produitsAchetesService.findAll();
-  }
-
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.produitsAchetesService.findOne(+id);
+  findAll(@Param('id') id: number) {
+    return this.produitsAchetesService.findAll(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProduitsAcheteDto: UpdateProduitsAcheteDto) {
-    return this.produitsAchetesService.update(+id, updateProduitsAcheteDto);
+  @Get('/:idA/:idP')
+  findOne(@Param('idA') idA: number , @Param('idP') idP: number) {
+    return this.produitsAchetesService.findOne( +idA , +idP );
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.produitsAchetesService.remove(+id);
+  @Patch('/:idA/:idP')
+  update(@Param('idA') idA: number , @Param('idP') idP: number, @Body() createProduitsAcheteDto: CreateProduitsAcheteDto) {
+    return this.produitsAchetesService.update(+idA , +idP, createProduitsAcheteDto);
+  }
+
+  @Delete('/:idA/:idP')
+  remove(@Param('idA') idA: number, @Param('idP') idP: number) {
+    return this.produitsAchetesService.remove(+idA , +idP );
   }
 }
