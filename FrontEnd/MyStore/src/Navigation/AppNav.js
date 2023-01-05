@@ -22,7 +22,7 @@ function AppNav() {
 
     return(
         <NavigationContainer>
-            {userToken !== null ? <AppBottomStack/> : <AuthStack/>}
+            {userToken !== null ? <AppBottomStack/> : <AppBottomStack/>}
         </NavigationContainer>
 
     );
