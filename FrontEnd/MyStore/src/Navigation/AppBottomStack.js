@@ -12,14 +12,13 @@ import { View,Text } from 'react-native';
 import ProfileRouter from './ProfileRouter';
 import Profile from './Profile';
 
-const Home =()=>{
-  return (
-  <View>
-      <Text>
-        test
-      </Text>
-  </View>)
-}
+import AddSale from '../Screens/app_screens/Sales/AddSale';
+import Sales from '../Screens/app_screens/Sales/Sales';
+
+import SeeCart from '../Screens/app_screens/Sales/SeeCart';
+import SalesRoutes from '../Screens/app_screens/Sales/SalesRoutes';
+
+
 //<Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}} />
 const Tab = createBottomTabNavigator();
 
@@ -31,10 +30,10 @@ function AppBottomStack() {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === 'AddSale') {
             iconName = focused
-              ? 'ios-information-circle'
-              : 'ios-information-circle-outline';
+              ? 'lock-closed-outline'
+              : 'lock-closed-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'ios-list' : 'ios-list-outline';
           }
@@ -46,8 +45,14 @@ function AppBottomStack() {
         tabBarInactiveTintColor: 'gray',
       })}
       > 
+              <Tab.Screen name="AddSale"  children={()=><ProfileRouter title="Add Sale" com={SalesRoutes}/> }  options={{ headerShown: false }}  />
+              <Tab.Screen name="Sales"  children={()=><ProfileRouter title="Sales" com={Sales}/> }  options={{ headerShown: false }}  />
+
+              {/* <Tab.Screen name="SeeCart" children={()=><ProfileRouter com={SeeCart}/> } options={{
+            tabBarStyle: { display: "none" },
+            headerShown: false
+          }}/> */}
         <Tab.Screen name='Settings' children={()=><ProfileRouter com={SettingsScreen}/> } options={{headerShown: false}} />
-        <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
         <Tab.Screen name="details" component={DetailsScreen} options={{
             tabBarStyle: { display: "none" },
             headerShown: false
