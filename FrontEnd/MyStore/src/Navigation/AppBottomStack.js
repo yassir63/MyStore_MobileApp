@@ -12,13 +12,13 @@ import { View,Text } from 'react-native';
 import ProfileRouter from './ProfileRouter';
 import Profile from './Profile';
 
+import ProductRoutes from '../Screens/app_screens/Product/ProductRoutes';
+
 import AddSale from '../Screens/app_screens/Sales/AddSale';
 import Sales from '../Screens/app_screens/Sales/Sales';
 
 import SeeCart from '../Screens/app_screens/Sales/SeeCart';
 import SalesRoutes from '../Screens/app_screens/Sales/SalesRoutes';
-
-
 //<Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}} />
 const Tab = createBottomTabNavigator();
 
@@ -52,7 +52,7 @@ function AppBottomStack() {
             tabBarStyle: { display: "none" },
             headerShown: false
           }}/> */}
-        <Tab.Screen name='Settings' children={()=><ProfileRouter com={SettingsScreen}/> } options={{headerShown: false}} />
+        <Tab.Screen name='Products' children={()=><ProfileRouter title="Products" com={ProductRoutes}/> } options={{headerShown: false}} />
         <Tab.Screen name="details" component={DetailsScreen} options={{
             tabBarStyle: { display: "none" },
             headerShown: false

@@ -39,58 +39,58 @@ export function SeeCart() {
         </Text>
         <View>
         <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
-          <ArticleCart/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
+          <ArticleCart onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           
           

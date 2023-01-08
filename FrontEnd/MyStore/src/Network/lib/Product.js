@@ -18,7 +18,7 @@ export function updateOne(id,datos){
     datos = transform_string_integer(datos);
     const data = axiosClient.patch('produits/'+id,datos).then((res)=>{
         return res.data ;
-
+        
     });
     return data;
 

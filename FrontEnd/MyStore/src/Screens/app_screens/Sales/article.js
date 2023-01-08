@@ -17,12 +17,12 @@ import {
 import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles'
 
-export function Article() {
+export function Article(props) {
   const {signout} = useContext(AuthContext)
 
     return (
      <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={(event)=>props.onPress()}>
             <Image
               style={{margin:3}}  
              source = {require("../../../../assets/item.png")}/>

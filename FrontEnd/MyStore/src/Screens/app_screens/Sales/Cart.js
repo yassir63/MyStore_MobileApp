@@ -20,6 +20,13 @@ import Article from '../Sales/article'
 import { useNavigate } from 'react-router-native'
 
 
+function handle_presse(id_val){
+  console.log('Pressed')
+  console.log(id_val)
+  // navigate('/read',{state:{id:id_val}})
+  
+}
+
 export function Cart() {
   const navigate = useNavigate();
 
@@ -31,28 +38,28 @@ export function Cart() {
         </Text>
         <View>
         <View style={{flexDirection:'row'}}>
-          <Article/>
-          <Article/>
-          <Article />
-          <Article/>
-          <Article/>
-          <Article/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           <View style={{flexDirection:'row'}}>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
-          <Article/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
+          <Article onPress={(value)=>{navigate('/addproduct')}}/>
           </View>
           
   
@@ -65,6 +72,10 @@ export function Cart() {
         </View>
     );
   }
+
+
+  
+  
 
 export default Cart
 
