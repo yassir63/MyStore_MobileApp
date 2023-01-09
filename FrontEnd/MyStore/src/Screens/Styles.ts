@@ -29,35 +29,35 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    loginBtn:
-   {
-     width:"60%",
-     borderRadius:25,
-     height:50,
-     alignItems:"center",
-     justifyContent:"center",
-     marginTop:30,
-     backgroundColor:"#FF1493",
-   },
-    inputView: {
-      backgroundColor: "#0465C9",
-      borderRadius: 15,
-      width: "80%",
-      minWidth:300,
-      height: 45,
-      marginBottom: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  //   loginBtn:
+  //  {
+  //    width:"60%",
+  //    borderRadius:25,
+  //    height:50,
+  //    alignItems:"center",
+  //    justifyContent:"center",
+  //    marginTop:30,
+  //    backgroundColor:"#FF1493",
+  //  },
+    // inputView: {
+    //   backgroundColor: "#0465C9",
+    //   borderRadius: 15,
+    //   width: "80%",
+    //   minWidth:300,
+    //   height: 45,
+    //   marginBottom: 20,
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    // },
     
-    TextInput: {
-      height: 50,
-      flex: 1,
-      padding: 10,
-      marginLeft: 20,
-      color:"white",
-      fontWeight:'bold'
-    },
+    // TextInput: {
+    //   height: 50,
+    //   flex: 1,
+    //   padding: 10,
+    //   marginLeft: 20,
+    //   color:"white",
+    //   fontWeight:'bold'
+    // },
     
     TopBar:{
       
@@ -202,5 +202,77 @@ export const styles = StyleSheet.create({
       margin:5,
       padding:10,
 
+    },
+    
+    loginBtn:
+   {
+     width:"35%",
+     borderRadius:10,
+     height:36,
+     alignItems:"center",
+     justifyContent:"center",
+     marginTop:30,
+     backgroundColor:"#53CAE3",
+   },
+    inputView: {
+      backgroundColor: "#444746",
+      borderRadius: 8,
+      width: "50%",
+      minWidth:240,
+      height: 45,
+      marginBottom: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    Label:{
+      alignSelf:"flex-start",
+      alignItems:"flex-start",
+      alignContent:'flex-start',
+      textAlign:'left',
+      backgroundColor:"white",
+      minWidth:240,
+      Width:"50%",
+    },
+   
+    TextInput: {
+      height: 50,
+      alignContent:'center',
+      textAlign:'center',
+      alignItems:'center',
+      padding: 10,
+      margin: 20,
+      color:"#FFFFFF",
+      fontWeight:'bold',
+    },
+    TextInputPlaceholder:{
+      height: 50,
+      width:"80%",
+      textAlign:'center',
+      color:"#FFFFFF",
+      fontSize:20,
+      fontFamily:'Gugi-Regular'
+
+    },
+    Text:{
+      fontSize:20,
+      marginBottom:5,
+      color:"black",
+      fontFamily:'Gugi-Regular',
+    },
+    ProfileView:{
+      backgroundColor: "#444746",
+            borderRadius: 8,
+            width: "50%",
+            minWidth:220,
+            maxWidth:220,
+            height: 45,
+            marginBottom: 20,
+            alignItems:'center',
+            justifyContent: 'center',
+            alignSelf:'flex-end',
+    },
+    inlineView:{
+      flexDirection:'row',
+      flexWrap:'wrap',
     }
   });
