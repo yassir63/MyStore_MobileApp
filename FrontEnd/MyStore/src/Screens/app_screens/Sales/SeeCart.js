@@ -19,13 +19,20 @@ import ArticleCart from './ArticleCart'
 import { Button } from 'react-native-paper'
 import Header from '../Header'
 import { useNavigate } from 'react-router-native'
-
-
+import { Products } from './SaleProducts';
 
 
 export function SeeCart() {
-  const navigate = useNavigate();
 
+  const {Product_list,setProduct_list} = useContext(Products);
+
+
+
+  const navigate = useNavigate();
+  const handle_validation=()=>{
+    console.log('validation pressed');
+    console.log(Product_list);
+  }
 
     return (
 
@@ -103,7 +110,7 @@ export function SeeCart() {
    
       </View>
       <View style={styles.addSalebuttonsCart}>
-        <TouchableOpacity style={{marginRight:20}}>
+        <TouchableOpacity onPress={handle_validation} style={{marginRight:20}}>
           <Image
 
           source = {require("../../../../assets/Checked_Checkbox.png")}/>

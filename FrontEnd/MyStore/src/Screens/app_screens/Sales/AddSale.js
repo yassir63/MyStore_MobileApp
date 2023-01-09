@@ -22,7 +22,7 @@ import Cash from '../Sales/cash'
 import Cart from '../Sales/Cart'
 import Header from '../Header'
 import { useNavigate } from 'react-router-native'
-
+import { Products } from './SaleProducts';
 
 
 
@@ -30,22 +30,30 @@ import { useNavigate } from 'react-router-native'
 export function AddSale() {
   const navigate = useNavigate();
 
+  const {Product_list,setProduct_list} = useContext(Products);
   const {signout} = useContext(AuthContext)
 
   const [type, setType] = useState("cash");
+
+  const [produts, setProduts] = useState([]);
+
+  const handle_validation=()=>{
+    console.log('validation pressed');
+    console.log(Product_list);
+  }
 
     return (
       <SafeAreaView style={styles.page}>
 
       <View>
 
-     <Cart/>
+     <Cart add_product_={setProduts} />
 
      {type == 'credit'? <Credit onPress={(value)=>{setType(value)}}/>: <Cash onPress={(value)=>{setType(value)}}/> }
 
      
             <View style={styles.addSalebuttons}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handle_validation}>
           <Image
 
           source = {require("../../../../assets/Checked_Checkbox.png")}/>

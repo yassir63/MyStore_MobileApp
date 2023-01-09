@@ -20,19 +20,27 @@ import { styles } from '../../Styles'
 import ProductsBox from '../Product/ProductsBox';
 import { findAll } from '../../../Network/lib/Product';
 import { useNavigate } from 'react-router-native'
+import { Products } from './SaleProducts';
 
-function handle_presse(val_id){
-    console.log("tkiti")
-    console.log(val_id)
-}
+
 
 export function AddProductToSale() {
 
     const navigate = useNavigate();
 
+    const {Product_list,setProduct_list} = useContext(Products);
+
     const [data, setData] = useState([]);
     const get_all_products = ()=>{
       console.log(data)
+    }
+
+    function handle_presse(id_val){
+      console.log('Pressed')
+      console.log(id_val)
+      console.log(Product_list);
+      setProduct_list([...Product_list,id_val]);
+      
     }
 
     useEffect(() => {
@@ -45,9 +53,8 @@ export function AddProductToSale() {
     }, [])
     return (
      <View style={styles.page}>
-    <ProductsBox data={data} styles={box_styles} handle_presse={handle_presse}/>
-    <Button onPress= {()=>{navigate('/seecart')}}>Back</Button>
-
+      <ProductsBox data={data} styles={box_styles} handle_presse={handle_presse}/>
+      <Button onPress= {()=>{navigate('/seecart')}}>Back</Button>
      </View>
     );
   }

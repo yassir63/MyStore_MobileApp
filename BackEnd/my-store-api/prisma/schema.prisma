@@ -29,7 +29,6 @@ model Produit {
   quantite         Int
   libelle          Boolean
   description      String             @db.Text
-  image            Bytes?
   user User @relation(fields: [id_user],references: [id])
   id_user String
   produits_achetes produits_achetes[]
