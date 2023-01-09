@@ -19,6 +19,7 @@ import Sales from '../Screens/app_screens/Sales/Sales';
 
 import SeeCart from '../Screens/app_screens/Sales/SeeCart';
 import SalesRoutes from '../Screens/app_screens/Sales/SalesRoutes';
+import Charges from '../Screens/app_screens/charges/Charges';
 //<Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}} />
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +48,7 @@ function AppBottomStack() {
       > 
               <Tab.Screen name="AddSale"  children={()=><ProfileRouter title="Add Sale" com={SalesRoutes}/> }  options={{ headerShown: false }}  />
               <Tab.Screen name="Sales"  children={()=><ProfileRouter title="Sales" com={Sales}/> }  options={{ headerShown: false }}  />
+              <Tab.Screen name="charges"  children={()=><ProfileRouter title="Sales" com={Charges}/> }  options={{ headerShown: false }}  />
 
               {/* <Tab.Screen name="SeeCart" children={()=><ProfileRouter com={SeeCart}/> } options={{
             tabBarStyle: { display: "none" },
