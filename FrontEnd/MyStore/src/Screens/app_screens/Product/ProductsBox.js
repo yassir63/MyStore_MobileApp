@@ -10,7 +10,7 @@ function ProductsBox(props) {
           {
           (props.data).map((val)=>{
             return(
-              <TouchableNativeFeedback key={val["id_produit"]} onPress={()=>props.handle_presse(val["id_produit"])} onLongPress={()=>props.handle_long_presse(val["id_produit"])}>
+              <TouchableNativeFeedback key={val["id_produit"]} onPress={()=>props.handle_presse(val["id_produit"],val["Prix_vente"])} onLongPress={()=>props.handle_long_presse(val["id_produit"])}>
                 <View  style={{padding:5}}>
                   <AntDesign name='questioncircleo' size={56} style={{color:'dodgerblue'}}/>
                   <Text style={props.styles.box_item_label}>{val["nom"]}</Text>

@@ -1,4 +1,4 @@
-import {React,useContext} from 'react'
+import {React,useContext,useState} from 'react'
 import {
   SafeAreaView,
   ScrollView,
@@ -16,9 +16,14 @@ import {
 } from 'react-native';
 import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles'
+import { Products } from './SaleProducts';
+
 
 export function Credit(props) {
+
   const {signout} = useContext(AuthContext)
+  const {Product_total,setProduct_total} = useContext(Products);
+
 // console.log(props)
     return (
       <View style={styles.addSalemontantCredit}>
@@ -38,9 +43,11 @@ export function Credit(props) {
       {/* Number  */}
       
                 <View style={styles.montantOutput}>
+                  
                 <Text style={{color:'white',fontWeight:'bold'}}>
-              0.00 MAD
+               {Product_total.reduce((a, b) => a + b, 0)} MAD
             </Text>
+            
                 </View>
              
               </View>
@@ -106,7 +113,7 @@ color:'white',
 alignItems:'center'
     }}
     
-	  placeholder="Type here!"
+	  placeholder="Type here!" onChangeText={(event)=>props.onChangeText(event)}
     />
                 </View>
              

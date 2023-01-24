@@ -16,9 +16,14 @@ import {
 } from 'react-native';
 import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles'
+import { Products } from './SaleProducts';
+
 
 export function Cash(props) {
-  const {signout} = useContext(AuthContext)
+  const {signout} = useContext(AuthContext);
+  const {Product_total,setProduct_total} = useContext(Products);
+
+
 
     return (
         <View style={styles.addSalemontant}>
@@ -39,7 +44,7 @@ export function Cash(props) {
 
           <View style={styles.montantOutput}>
           <Text style={{color:'white',fontWeight:'bold'}}>
-        0.00 MAD
+          {Product_total.reduce((a, b) => a + b, 0)} MAD
       </Text>
           </View>
        

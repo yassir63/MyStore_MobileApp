@@ -18,6 +18,8 @@ function SalesRoutes() {
 
   
   const [Product_list, setProduct_list] = useState([]);
+  const [Product_total, setProduct_total] = useState([]);
+
   const handle_validation=()=>{
     console.log('validation pressed');
     console.log(Product_list);
@@ -26,7 +28,7 @@ function SalesRoutes() {
   //this handle presse function is not used for now , but it would bet a good solution for the repeated validation buton on / and /more route
 
   return (
-    <Products.Provider value={{Product_list,setProduct_list}} >
+    <Products.Provider value={{Product_list,setProduct_list,Product_total,setProduct_total}} >
       <Routes>
         
           <Route exact path='/' element={<AddSale handle_validation={handle_validation}/>} />

@@ -26,21 +26,32 @@ import { Products } from './SaleProducts';
 
 export function AddProductToSale() {
 
+  let total;
     const navigate = useNavigate();
 
     const {Product_list,setProduct_list} = useContext(Products);
+    const {Product_total,setProduct_total} = useContext(Products);
+
 
     const [data, setData] = useState([]);
     const get_all_products = ()=>{
       console.log(data)
     }
 
-    function handle_presse(id_val){
-      console.log('Pressed')
+    function handle_presse(id_val,prix){
+      console.log('Added product to sale trigger')
+      console.log("========================================")
       console.log(id_val)
+      console.log(prix)
+
       console.log(Product_list);
-      setProduct_list([...Product_list,id_val]);
+      console.log(Product_total);
       
+      setProduct_list([...Product_list,id_val]);
+      setProduct_total([...Product_total,prix]);
+
+      console.log("Total is " + Product_total.reduce((a, b) => a + b, 0) + " MAD")
+      console.log("========================================")
     }
 
     useEffect(() => {

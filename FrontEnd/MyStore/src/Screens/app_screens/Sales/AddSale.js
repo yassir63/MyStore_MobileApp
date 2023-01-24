@@ -31,15 +31,32 @@ export function AddSale() {
   const navigate = useNavigate();
 
   const {Product_list,setProduct_list} = useContext(Products);
+  const {Product_total,setProduct_total} = useContext(Products);
+
   const {signout} = useContext(AuthContext)
 
   const [type, setType] = useState("cash");
+  const [borrower, setBorrower] = useState("Flan Ben Flan");
+
 
   const [produts, setProduts] = useState([]);
 
   const handle_validation=()=>{
-    console.log('validation pressed');
-    console.log(Product_list);
+    console.log("========================================")
+    console.log('VALIDATED !!!');
+
+    // console.log(Product_list);
+    // console.log(Product_total.reduce((a, b) => a + b, 0))
+    if(type=='cash'){
+console.log("floss")
+    }else{
+      console.log("credit")
+      console.log(borrower);
+      
+
+    }
+    console.log("========================================")
+
   }
 
     return (
@@ -47,9 +64,11 @@ export function AddSale() {
 
       <View>
 
+        {/* need to implement this add product in Cart */}
+
      <Cart add_product_={setProduts} />
 
-     {type == 'credit'? <Credit onPress={(value)=>{setType(value)}}/>: <Cash onPress={(value)=>{setType(value)}}/> }
+     {type == 'credit'? <Credit onChangeText={(value)=>{setBorrower(value)}} onPress={(value)=>{setType(value)}}/>: <Cash onPress={(value)=>{setType(value)}}/> }
 
      
             <View style={styles.addSalebuttons}>
