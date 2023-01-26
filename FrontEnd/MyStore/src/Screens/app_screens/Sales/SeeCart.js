@@ -20,18 +20,33 @@ import { Button } from 'react-native-paper'
 import Header from '../Header'
 import { useNavigate } from 'react-router-native'
 import { Products } from './SaleProducts';
+import { create } from '../../../Network/lib/Achats';
 
 
 export function SeeCart() {
 
   const {Product_list,setProduct_list} = useContext(Products);
+  const {Product_total,setProduct_total} = useContext(Products);
+
 
 
 
   const navigate = useNavigate();
   const handle_validation=()=>{
     console.log('validation pressed');
+
     console.log(Product_list);
+    console.log(Product_total);
+/*     var date = moment()
+      .utcOffset('+05:30')
+      .format('YYYY-MM-DD hh:mm:ss a');
+    console.log(date); */
+
+
+    
+    console.log("Total is " + Product_total.reduce((a, b) => a + b, 0) + " MAD")
+    console.log("========================================")
+    create();
   }
 
     return (

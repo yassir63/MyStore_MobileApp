@@ -26,9 +26,9 @@ export function updateOne(id,info){
 
 }
 
-export function create(info){
-    datos = transform_string_integer(info);
-    axiosClient.post('achats',info);
+export function create(datos){
+    console.log("just before axios : ",datos);
+    axiosClient.post('achats',datos);
 }
 
 

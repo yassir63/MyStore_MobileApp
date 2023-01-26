@@ -23,6 +23,7 @@ import Cart from '../Sales/Cart'
 import Header from '../Header'
 import { useNavigate } from 'react-router-native'
 import { Products } from './SaleProducts';
+import { create } from '../../../Network/lib/Achats';
 
 
 
@@ -41,22 +42,37 @@ export function AddSale() {
 
   const [produts, setProduts] = useState([]);
 
-  const handle_validation=()=>{
-    console.log("========================================")
+
+  const [reqdata, setReqdata] = useState({});
+
+
+
+  const handle_validation = () => {
     console.log('VALIDATED !!!');
+  
+    let updatedReqdata = {...reqdata};
+    
+    const currentDate = new Date();
+    const day = currentDate.getUTCDate().toString().padStart(2,'0');
+    const month = (currentDate.getUTCMonth()+1).toString().padStart(2,'0');
+    const year = currentDate.getUTCFullYear();
+  
+    const currentDateString = year+"-"+month+"-"+day;
+    updatedReqdata = {...updatedReqdata, "montant": Product_total.reduce((a, b) => a + b, 0), "date_achat": currentDateString, products: Product_list}
 
-    // console.log(Product_list);
-    // console.log(Product_total.reduce((a, b) => a + b, 0))
     if(type=='cash'){
-console.log("floss")
+      updatedReqdata = {...updatedReqdata, "paiemenet": true}
     }else{
-      console.log("credit")
-      console.log(borrower);
-      
-
+      updatedReqdata = {...updatedReqdata, "paiemenet": false, "crediteur": borrower}
     }
-    console.log("========================================")
+  
 
+  
+    console.log("Total is " + Product_total.reduce((a, b) => a + b, 0) + " MAD")
+    console.log(updatedReqdata)
+  
+    setReqdata(updatedReqdata);
+    create(updatedReqdata);
   }
 
     return (
@@ -80,7 +96,7 @@ console.log("floss")
             Validate
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{console.log(reqdata);setReqdata({})}}>
         <Image
         source = {require("../../../../assets/Reset.png")}/>
         <Text

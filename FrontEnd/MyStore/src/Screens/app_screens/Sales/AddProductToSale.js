@@ -39,19 +39,15 @@ export function AddProductToSale() {
     }
 
     function handle_presse(id_val,prix){
-      console.log('Added product to sale trigger')
       console.log("========================================")
+      console.log('Added product to sale trigger')
       console.log(id_val)
       console.log(prix)
-
-      console.log(Product_list);
-      console.log(Product_total);
       
       setProduct_list([...Product_list,id_val]);
       setProduct_total([...Product_total,prix]);
 
-      console.log("Total is " + Product_total.reduce((a, b) => a + b, 0) + " MAD")
-      console.log("========================================")
+
     }
 
     useEffect(() => {
@@ -65,7 +61,7 @@ export function AddProductToSale() {
     return (
      <View style={styles.page}>
       <ProductsBox data={data} styles={box_styles} handle_presse={handle_presse}/>
-      <Button onPress= {()=>{navigate('/seecart')}}>Back</Button>
+      <Button onPress= {()=>{navigate('/')}}>Back</Button>
      </View>
     );
   }
