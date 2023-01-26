@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { AchatsService } from './achats.service';
+import { CreateAchatReduitDto } from './dto/create-achat-reduit.dto';
 import { CreateAchatDto } from './dto/create-achat.dto';
 
 @Controller('achats')
@@ -7,9 +8,10 @@ export class AchatsController {
   constructor(private readonly achatsService: AchatsService) {}
 
   @Post()
-  create(@Body() createAchatDto: CreateAchatDto) {
-    
-    return this.achatsService.create(createAchatDto);
+  create(@Body() CreateAchatReduitDto: CreateAchatReduitDto) {
+    console.log('passed middleware')
+    console.log(CreateAchatReduitDto)
+    return this.achatsService.create(CreateAchatReduitDto);
   }
 
   @Get()
