@@ -17,8 +17,14 @@ import ProductRoutes from '../Screens/app_screens/Product/ProductRoutes';
 import AddSale from '../Screens/app_screens/Sales/AddSale';
 import Sales from '../Screens/app_screens/Sales/Sales';
 
+import CreditScreen from '../Screens/app_screens/Credit/CreditScreen';
+import ExpenseScreen from '../Screens/app_screens/Expenses/ExpenseScreen';
+
+
 import SeeCart from '../Screens/app_screens/Sales/SeeCart';
 import SalesRoutes from '../Screens/app_screens/Sales/SalesRoutes';
+import ExpenseRoutes from '../Screens/app_screens/Expenses/ExpenseRoutes';
+
 //<Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}} />
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +53,8 @@ function AppBottomStack() {
       > 
               <Tab.Screen name="AddSale"  children={()=><ProfileRouter title="Add Sale" com={SalesRoutes}/> }  options={{ headerShown: false }}  />
               <Tab.Screen name="Sales"  children={()=><ProfileRouter title="Sales" com={Sales}/> }  options={{ headerShown: false }}  />
+              <Tab.Screen name="Credit"  children={()=><ProfileRouter title="Credit" com={CreditScreen}/> }  options={{ headerShown: false }}  />
+              <Tab.Screen name="Expenses"  children={()=><ProfileRouter title="Expenses" com={ExpenseRoutes}/> }  options={{ headerShown: false }}  />
 
               {/* <Tab.Screen name="SeeCart" children={()=><ProfileRouter com={SeeCart}/> } options={{
             tabBarStyle: { display: "none" },

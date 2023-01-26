@@ -28,7 +28,9 @@ export class CreditService {
   }
 
   findAll() {
-    return this.prismaService.achat_credit.findMany();
+    return this.prismaService.achat_credit.findMany({include: {
+      achat: true,
+    },});
   }
 
   findOne(id: number) {
