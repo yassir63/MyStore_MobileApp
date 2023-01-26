@@ -17,18 +17,18 @@ export class ProduitsController {
 
   @Post()
   create(@Body() createProduitDto: CreateProduitDto) {
+    console.log(createProduitDto);
     try {
-      return this.produitsService.create(createProduitDto)
+      return this.produitsService.create(createProduitDto);
     } catch (error) {
       console.log(error);
       return null;
     }
-   
   }
 
   @Get()
-  findAll() {
-    return this.produitsService.findAll();
+  findAll(@Body('id_user') id: string) {
+    return this.produitsService.findAll(id);
   }
 
   @Get(':id')

@@ -8,7 +8,18 @@ import { ChargesModule } from './charges/charges.module';
 import { CreditModule } from './credit/credit.module';
 import { ProduitsAchetesModule } from './produits_achetes/produits_achetes.module';
 
+import { getUser } from './middlewears/getUser.middleware';
+import { MiddlewareConsumer } from '@nestjs/common';
+import { RequestMethod } from '@nestjs/common';
+
+import { ProduitsController } from './produits/produits.controller';
 @Module({
   imports: [AuthModule, PrismaModule, UsersModule, AchatsModule, ProduitsModule, ChargesModule, CreditModule, ProduitsAchetesModule],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(getUser)
+      .forRoutes(ProduitsController );
+  }
+}

@@ -10,11 +10,14 @@ export const AuthProvider = ({children}) => {
 
     const [isLoading, setIsLoading] =  useState(false)
     const [userToken, setUserToken] =  useState(null)
+    const [user_id, setuser_id] =  useState(null)
 
 
     function signin(email,password,{navigation}){
       const resp =  axiosClient.post('/auth/signin',{email,password}).then(async res => {
        console.warn(res.data.message)
+       console.log(res.data);
+       setuser_id(res.data.us_id)
        setIsLoading(true)
        try {
         await AsyncStorage.setItem(
@@ -91,7 +94,7 @@ useEffect(()=>{
 
 
     return (
-        <AuthContext.Provider value={{isLoading,userToken,signin,signout,signup}}>
+        <AuthContext.Provider value={{isLoading,userToken,user_id,signin,signout,signup}}>
             {children}
         </AuthContext.Provider>
     )
