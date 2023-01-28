@@ -53,7 +53,7 @@ export function SaleItem(props) {
                 <Text style={{fontWeight:'bold',color:'white',fontSize:15}}>
               Status  
             </Text>
-            {data['paiemenet'] ? <Text style={{fontWeight:'bold',color:'red',fontSize:15}}>
+            {data['paiement'] ? <Text style={{fontWeight:'bold',color:'red',fontSize:15}}>
               Credit   
             </Text>:<Text style={{fontWeight:'bold',color:'green',fontSize:15}}>
               Paid   

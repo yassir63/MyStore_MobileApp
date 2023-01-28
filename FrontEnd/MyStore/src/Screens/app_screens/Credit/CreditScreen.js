@@ -57,7 +57,7 @@ export function CreditScreen() {
       }
       fetchData();
 
-    }, [])
+    }, [info])
 
     return (
       <SafeAreaView style={styles.page}>
@@ -126,7 +126,7 @@ export function CreditScreen() {
               Credit Total   
             </Text>
             <Text style={{fontWeight:'bold',color:'red',fontSize:18}}>
-              {sumCredit}   
+              {sumCredit.toFixed(2)}   
             </Text>
                 </View>
       {/* <Image source = {require("../../../../assets/LineSeparatorVertical.png")}/> */}

@@ -38,7 +38,7 @@ model Achat {
   id_achat         Int                @id @default(autoincrement())
   montant          Float
   date_achat       DateTime
-  paiemenet        Boolean
+  paiement        Boolean
   user User @relation(fields: [id_user],references: [id])
   id_user String
   achat_credit     achat_credit[]
@@ -63,9 +63,10 @@ model produits_achetes {
 
 model charges {
   id_charge Int      @id @default(autoincrement())
-  categorie String   @db.VarChar(256)
+  creditor String   @db.VarChar(256)
   montant   Float
   date      DateTime
+  date_limite DateTime
   user User @relation(fields: [id_user],references: [id])
   id_user String
 }

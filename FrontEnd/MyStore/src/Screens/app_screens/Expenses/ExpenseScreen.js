@@ -51,7 +51,7 @@ export function ExpenseScreen() {
       }
       fetchData();
 
-    }, [])
+    },[info])
 
     return (
       <SafeAreaView style={styles.page}>

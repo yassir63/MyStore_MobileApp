@@ -17,7 +17,23 @@ import {
 import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles'
 
+import { deleteOne } from '../../../Network/lib/Credits';
+
+
 export function CreditItem(props) {
+
+
+  const handle_confirmedreception=()=>{
+
+
+    deleteOne(data['id_achat']);
+    console.warn("confirmed")
+    // DevSettings.reload()
+    // why if naviaget back it gives error !!!
+    
+    // navigate('/');
+
+  }
   const {signout} = useContext(AuthContext)
   const data=props.props
   console.log(data)
@@ -92,14 +108,14 @@ export function CreditItem(props) {
                 {/* <Text style={{fontWeight:'bold',color:'white',fontSize:15}}>
               Status  
             </Text> */}
-            {/* {data['paiemenet'] ? <Text style={{fontWeight:'bold',color:'red',fontSize:15}}>
+            {/* {data['paiement'] ? <Text style={{fontWeight:'bold',color:'red',fontSize:15}}>
               Credit   
             </Text>:<Text style={{fontWeight:'bold',color:'green',fontSize:15}}>
               Paid   
             </Text>} */}
 
 
-            <TouchableOpacity style={{justifyContent:'center',alignItems:'center',backgroundColor: 'red',width:132,height:40,borderRadius:10}}>
+            <TouchableOpacity style={{justifyContent:'center',alignItems:'center',backgroundColor: 'red',width:132,height:40,borderRadius:10}} onPress={handle_confirmedreception}>
                 <Text style={{fontWeight:'bold',fontSize:16,color:'white'}}>Confirm Reception</Text>
             </TouchableOpacity>
             

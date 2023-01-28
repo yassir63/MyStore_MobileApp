@@ -14,5 +14,5 @@ export class CreateAchatDto {
     date_achat:Date;
 
     @IsBoolean()
-    paiemenet : boolean;
+    paiement : boolean;
 }

@@ -41,7 +41,7 @@ export function Sales() {
     }
 
    (info.map((data1)=>{
-    if(data1['paiemenet']){
+    if(data1['paiement']){
       sumPaid+=data1['montant']
     }else{
       sumCredit+=data1['montant']
@@ -124,7 +124,7 @@ export function Sales() {
               Credit Total   
             </Text>
             <Text style={{fontWeight:'bold',color:'red',fontSize:18}}>
-              {sumCredit}   
+              {sumCredit.toFixed(2)}   
             </Text>
                 </View>
       <Image source = {require("../../../../assets/LineSeparatorVertical.png")}/>
@@ -135,7 +135,7 @@ export function Sales() {
               Payed Total   
             </Text>
             <Text style={{fontWeight:'bold',color:'green',fontSize:18}}>
-              {sumPaid}   
+              {sumPaid.toFixed(2)}   
             </Text>
                 </View>
              

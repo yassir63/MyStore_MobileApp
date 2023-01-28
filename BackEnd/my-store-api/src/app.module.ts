@@ -13,6 +13,8 @@ import { MiddlewareConsumer } from '@nestjs/common';
 import { RequestMethod } from '@nestjs/common';
 
 import { ProduitsController } from './produits/produits.controller';
+import { AchatsController } from './achats/achats.controller';
+import { ChargesController } from './charges/charges.controller';
 @Module({
   imports: [AuthModule, PrismaModule, UsersModule, AchatsModule, ProduitsModule, ChargesModule, CreditModule, ProduitsAchetesModule],
 })
@@ -20,6 +22,6 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(getUser)
-      .forRoutes(ProduitsController );
+      .forRoutes(ProduitsController, AchatsController,ChargesController);
   }
 }

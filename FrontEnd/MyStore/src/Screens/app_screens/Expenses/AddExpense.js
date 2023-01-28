@@ -23,6 +23,7 @@ import Cart from '../Sales/Cart'
 import Header from '../Header'
 import { useNavigate } from 'react-router-native'
 import { Products } from './SaleProducts';
+import { create } from '../../../Network/lib/Expenses';
 
 
 
@@ -31,14 +32,31 @@ export function AddExpense() {
   const navigate = useNavigate();
 
 
+  const [data, setData] = useState({});
 
-  const [category, setCategory] = useState();
+  const [creditor, setCreditor] = useState();
   const [price, setPrice] = useState();
-  const [delay, setDelay] = useState();
+  const [duedate, setDueDate] = useState();
 
 
   const handle_validation=()=>{
+
+
+    const currentDate = new Date();
+    const day = currentDate.getUTCDate().toString().padStart(2,'0');
+    const month = (currentDate.getUTCMonth()+1).toString().padStart(2,'0');
+    const year = currentDate.getUTCFullYear();
+  
+    const currentDateString = year+"-"+month+"-"+day;
+    setData({"montant" : parseFloat(price),"creditor" : creditor,"date":new Date(), "date_limite" : new Date(duedate)});
+    console.log(data)  
+   
+    create(data);
+    console.warn("saved")
+
+    // why if naviaget back it gives error !!!!
     
+    // navigate('/');
 
   }
 
@@ -50,7 +68,7 @@ export function AddExpense() {
         {/* need to implement this add product in Cart */}
         <View style={styles.Label}>
               <Text style={styles.Text}>
-                Category
+                Creditor
               </Text>
           </View>
           <View style={styles.inputView}>
@@ -59,7 +77,7 @@ export function AddExpense() {
             placeholderTextColor="white"
             
             // placeholderTextColor="#003f5c"
-            onChangeText={(category) => setCategory(category)}
+            onChangeText={(creditor) => setCreditor(creditor)}
           />
         </View>
         <View style={styles.Label}>
@@ -78,17 +96,17 @@ export function AddExpense() {
         </View>
         <View style={styles.Label}>
               <Text style={styles.Text}>
-                Delay
+                Due Date
               </Text>
           </View>
           <View style={styles.inputView}>
            <TextInput
             style={styles.TextInputPlaceholder}
-            placeholder="In Hours"
+            placeholder="YY-MM-DD"
             placeholderTextColor="white"
             
             // placeholderTextColor="#003f5c"
-            onChangeText={(delay) => setDelay(delay)}
+            onChangeText={(duedate) => setDueDate(duedate)}
           />
         </View>
         

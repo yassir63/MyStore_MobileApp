@@ -20,7 +20,7 @@ CREATE TABLE "Achat" (
     "id_achat" SERIAL NOT NULL,
     "montant" DOUBLE PRECISION NOT NULL,
     "date_achat" TIMESTAMP(3) NOT NULL,
-    "paiemenet" BOOLEAN NOT NULL,
+    "paiement" BOOLEAN NOT NULL,
 
     CONSTRAINT "Achat_pkey" PRIMARY KEY ("id_achat")
 );

@@ -14,7 +14,7 @@ export class CreateAchatReduitDto {
     date_achat:Date;
 
     @IsBoolean()
-    paiemenet : boolean;
+    paiement : boolean;
 
     @IsArray()
     products: string[];

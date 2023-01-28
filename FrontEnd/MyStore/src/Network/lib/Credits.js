@@ -16,6 +16,13 @@ export function findOne(id){
     return data;
 }
 
+export function deleteOne(id){
+    const data = axiosClient.delete('credit/'+id).then((res)=>{
+        return res.data ;        
+    });
+    return data;
+}
+
 export function updateOne(id,info){
     datos = transform_string_integer(info);
     const data = axiosClient.patch('credit/'+id,info).then((res)=>{

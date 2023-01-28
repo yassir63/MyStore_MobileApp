@@ -61,9 +61,9 @@ export function AddSale() {
     updatedReqdata = {...updatedReqdata, "montant": Product_total.reduce((a, b) => a + b, 0), "date_achat": currentDateString, products: Product_list}
 
     if(type=='cash'){
-      updatedReqdata = {...updatedReqdata, "paiemenet": true}
+      updatedReqdata = {...updatedReqdata, "paiement": true}
     }else{
-      updatedReqdata = {...updatedReqdata, "paiemenet": false, "crediteur": borrower}
+      updatedReqdata = {...updatedReqdata, "paiement": false, "crediteur": borrower}
     }
   
 
@@ -96,7 +96,7 @@ export function AddSale() {
             Validate
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{console.log(reqdata);setReqdata({})}}>
+        <TouchableOpacity onPress={()=>{setReqdata({});setProduts([]);setProduct_total([]);setProduct_list([]);}}>
         <Image
         source = {require("../../../../assets/Reset.png")}/>
         <Text
@@ -117,16 +117,3 @@ export function AddSale() {
 
 export default AddSale
 
-
-
-
-// <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//         <Text>Welcome To The Home Screen ! </Text>
-//         <TouchableOpacity style={styles.loginBtn} 
-//         onPress={() => signout({ navigation })}
-//         // onPress={() => {logout()}}
-
-//         >
-//               <Text style={styles.loginText}>LOGOUT</Text>
-//             </TouchableOpacity>
-//       </View>
