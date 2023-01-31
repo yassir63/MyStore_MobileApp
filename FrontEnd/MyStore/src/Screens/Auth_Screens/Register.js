@@ -151,20 +151,7 @@ export function Register({navigation}) {
 
 
 
-const people = new GoogleApis.people('v1');
 
-async function checkEmail(email) {
-  try {
-    const response = await people.people.get({
-      resourceName: `people/${email}`,
-      personFields: 'emailAddresses'
-    });
-    return response.data.emailAddresses.length > 0;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-}
 
   function CheckPassword(email, password, confirmpassword, {navigation}) {
     if (password === confirmpassword) {
