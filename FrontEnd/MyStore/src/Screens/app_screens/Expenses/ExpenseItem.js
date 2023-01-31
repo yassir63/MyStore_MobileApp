@@ -16,21 +16,23 @@ import {
 } from 'react-native';
 import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles';
+import { findAll } from '../../../Network/lib/Expenses';
 
 import { deleteOne } from '../../../Network/lib/Expenses';
 import { renderMatches, useNavigate } from 'react-router-native'
-import {DevSettings} from 'react-native';
+// import {DevSettings} from 'react-native';
 
 
 
 
-export function ExpenseItem(props) {
+
+ function ExpenseItem(props) {
   const navigate = useNavigate();
 
   const {signout} = useContext(AuthContext)
   // const data=props.props
   // const [data,setData] = useState({})
-  let data = props['props']
+  let data = props['val']
   console.log(data)
   // setData(props['props'])
   // console.log()
@@ -41,11 +43,14 @@ export function ExpenseItem(props) {
  
 
 
-  const handle_confirmedpayment=()=>{
+  const handle_confirmedpayment= async ()=>{
 
 
     deleteOne(data['id_charge']);
     console.warn("confirmed")
+    const datos = await findAll();
+    props.SetInfo(datos);
+    // console.log(data)
     // setData(props.props)
     // DevSettings.reload()
     // why if naviaget back it gives error !!!
@@ -53,6 +58,7 @@ export function ExpenseItem(props) {
     // navigate('/');
 
   }
+
 
   
 

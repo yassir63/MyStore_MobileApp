@@ -7,9 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "go": "concurrently --kill-others \"npx react-native run-android\" \"cd ../../BackEnd/my-store-api/ && npm run start:dev\""
   },
   "dependencies": {
+    "@googleapis/docs": "^2.0.0",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-native-google-signin/google-signin": "^9.0.2",
     "@react-navigation/bottom-tabs": "^6.5.2",
@@ -17,6 +19,7 @@
     "@react-navigation/native-stack": "^6.9.7",
     "axios": "^1.2.1",
     "expo-secure-store": "^12.0.0",
+    "googleapis": "^110.0.0",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-axios": "^0.17.1",
@@ -34,6 +37,7 @@
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
+    "concurrently": "^7.6.0",
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",

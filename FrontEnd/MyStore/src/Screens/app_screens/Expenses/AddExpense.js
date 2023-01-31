@@ -32,7 +32,9 @@ export function AddExpense() {
   const navigate = useNavigate();
 
 
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
+
+  let data = {};
 
   const [creditor, setCreditor] = useState();
   const [price, setPrice] = useState();
@@ -48,15 +50,17 @@ export function AddExpense() {
     const year = currentDate.getUTCFullYear();
   
     const currentDateString = year+"-"+month+"-"+day;
-    setData({"montant" : parseFloat(price),"creditor" : creditor,"date":new Date(), "date_limite" : new Date(duedate)});
-    console.log(data)  
+    // setData({"montant" : parseFloat(price),"creditor" : creditor,"date":new Date(), "date_limite" : new Date(duedate)});
+    // console.log(data)  
+
+    data = {"montant" : parseFloat(price),"creditor" : creditor,"date":new Date(), "date_limite" : new Date(duedate)}
    
     create(data);
     console.warn("saved")
 
     // why if naviaget back it gives error !!!!
     
-    // navigate('/');
+    navigate('/');
 
   }
 

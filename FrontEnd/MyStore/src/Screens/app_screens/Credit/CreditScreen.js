@@ -38,9 +38,7 @@ export function CreditScreen() {
   let sumCredit=0;
 
   const [info, SetInfo] = useState([]);
-    const get_all_sales = ()=>{
-      console.log(info)
-    }
+
 
    (info.map((data1)=>{
     
@@ -51,13 +49,17 @@ export function CreditScreen() {
 
 
     useEffect(() => {
+      console.log("hna")
+
       async function fetchData(){
-        const info = await findAll();
-        SetInfo(info)
+        const infos = await findAll();
+        console.log(infos)
+        SetInfo(infos)
       }
       fetchData();
 
-    }, [info])
+    }, [])
+
 
     return (
       <SafeAreaView style={styles.page}>
@@ -105,7 +107,7 @@ export function CreditScreen() {
             //     </View>
             // </TouchableNativeFeedback>
 
-            <CreditItem props={val}/>
+            <CreditItem val={val} SetInfo={SetInfo}/>
             )
           })
   }

@@ -18,12 +18,14 @@ import { AuthContext } from '../../../Context/AuthContext';
 import { styles } from '../../Styles'
 
 import { deleteOne } from '../../../Network/lib/Credits';
+import { findAll } from '../../../Network/lib/Credits';
+
 
 
 export function CreditItem(props) {
 
 
-  const handle_confirmedreception=()=>{
+  const handle_confirmedreception= async ()=>{
 
 
     deleteOne(data['id_achat']);
@@ -33,9 +35,20 @@ export function CreditItem(props) {
     
     // navigate('/');
 
+  
+    const datos = await findAll();
+    props.SetInfo(datos);
+    // console.log(data)
+    // setData(props.props)
+    // DevSettings.reload()
+    // why if naviaget back it gives error !!!
+
+    // navigate('/');
+
   }
+
   const {signout} = useContext(AuthContext)
-  const data=props.props
+  const data=props.val
   console.log(data)
   // console.log(props.props[0]['id_achat'])
 

@@ -131,6 +131,9 @@ import {
   Button,
 } from 'react-native';
 
+// import { GoogleApis } from 'googleapis';
+
+
 import {axiosClient} from '../Network/axios';
 // import { signout } from '../Network/Auth/auth'
 // import { signin , signup, signout } from '../Network/Auth/Context/AuthContext'
@@ -146,8 +149,31 @@ export function Register({navigation}) {
 
   const data = [{email: email, password: password}];
 
+
+
+const people = new GoogleApis.people('v1');
+
+async function checkEmail(email) {
+  try {
+    const response = await people.people.get({
+      resourceName: `people/${email}`,
+      personFields: 'emailAddresses'
+    });
+    return response.data.emailAddresses.length > 0;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
   function CheckPassword(email, password, confirmpassword, {navigation}) {
     if (password === confirmpassword) {
+      // if (checkEmail()){
+      //   console.log("Email Exists !")
+      // }else{
+      //   console.log("Email doesn't Exist !")
+      //   return 0;
+      // }
       signup(email, password, {navigation});
       navigation.navigate('LogIn')
       

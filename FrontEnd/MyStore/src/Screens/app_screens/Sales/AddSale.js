@@ -73,6 +73,14 @@ export function AddSale() {
   
     setReqdata(updatedReqdata);
     create(updatedReqdata);
+
+
+
+    setReqdata({});
+    setProduts([]);
+    setProduct_total([]);
+    setProduct_list([]);
+    setBorrower("");
   }
 
     return (
@@ -96,7 +104,7 @@ export function AddSale() {
             Validate
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{setReqdata({});setProduts([]);setProduct_total([]);setProduct_list([]);}}>
+        <TouchableOpacity onPress={()=>{setBorrower("");setReqdata({});setProduts([]);setProduct_total([]);setProduct_list([]);}}>
         <Image
         source = {require("../../../../assets/Reset.png")}/>
         <Text

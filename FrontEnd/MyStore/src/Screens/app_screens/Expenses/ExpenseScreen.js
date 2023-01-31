@@ -37,21 +37,17 @@ export function ExpenseScreen() {
 
 
   const [info, SetInfo] = useState([]);
-    const get_all_sales = ()=>{
-      console.log(info)
-    }
-
-
+   
 
 
     useEffect(() => {
       async function fetchData(){
-        const info = await findAll();
-        SetInfo(info)
+        const infos = await findAll();
+        SetInfo(infos)
       }
       fetchData();
 
-    },[info])
+    },[])
 
     return (
       <SafeAreaView style={styles.page}>
@@ -98,7 +94,7 @@ export function ExpenseScreen() {
             //     </View>
             // </TouchableNativeFeedback>
 
-            <ExpenseItem props={val}/>
+            <ExpenseItem val={val} SetInfo = {SetInfo}/>
             )
           })
   }
