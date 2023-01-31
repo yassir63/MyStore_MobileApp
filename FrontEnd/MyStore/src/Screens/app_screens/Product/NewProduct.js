@@ -7,23 +7,29 @@ function NewProduct() {
     "nom",
     "marque",
     "categorie",
-    "Prix vente",
-    "Prix achat",
-    "date expiration",
+    "Prix_vente",
+    "Prix_achat",
+    "date_expiration",
     "quantite",
     "libelle",
     "description",
-    "id user",
   ];
+  const lab = {  nom:"nom",
+  marque:"marque",
+  categorie:"categorie",
+  Prix_vente:"Prix vente",
+  Prix_achat:"Prix achat",
+  date_expiration:"date expiration",
+  quantite:"quantite",
+  libelle:"libelle",
+  description:"description",
+  }
+
+  
     //Inputs
     const [inps, setInps] = React.useState({});
     const navigate = useNavigate();
-    const handle_inputs=(label,text)=>{
-      const aux=inps;
-      aux[label]=text;
-      setInps(aux);
 
-    }
   return (
     <SafeAreaView style={{flex:1}}>
       <ScrollView >
@@ -35,7 +41,7 @@ function NewProduct() {
               return(
               <View style={styles.input_container}>
                 <View style={styles.label_view} >
-                  <Text style={styles.input_text}>{val} : </Text>
+                  <Text style={styles.input_text}>{lab[val]} : </Text>
                 </View>
 
                 {

@@ -26,6 +26,7 @@ export function updateOne(id,datos){
 
 export function create(datos){
     datos = transform_string_integer(datos);
+    console.log("datos",datos)
     axiosClient.post('produits',datos);
 }
 
