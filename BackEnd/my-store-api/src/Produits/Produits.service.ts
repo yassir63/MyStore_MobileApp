@@ -25,8 +25,9 @@ export class ProduitsService {
     }
   }
 
-  findAll() {
-    return this.prismaService.produit.findMany();
+  findAll(id:string) {
+    console.log("id ",id); 
+    return this.prismaService.produit.findMany({where:{id_user:id}});
   }
 
   findOne(id: number) {

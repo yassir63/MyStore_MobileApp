@@ -1,0 +1,23 @@
+{
+  "name": "mystore_mobileapp",
+  "version": "1.0.0",
+  "description": "This project is a react-native app with a nest JS BackEnd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"cd ./FrontEnd/MyStore/ && npx react-native run-android\" \"cd ./BackEnd/my-store-api/ && npm run start:dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yassir63/MyStore_MobileApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yassir63/MyStore_MobileApp/issues"
+  },
+  "homepage": "https://github.com/yassir63/MyStore_MobileApp#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

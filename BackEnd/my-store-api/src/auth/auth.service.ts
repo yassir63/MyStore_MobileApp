@@ -71,7 +71,7 @@ export class AuthService {
 
     res.cookie('token', token, {});
 
-    return res.send({ message: 'Logged in succesfully' });
+    return res.send({ message: 'Logged in succesfully',us_id: foundUser.id});
   }
 
   async signout(req: Request, res: Response) {

@@ -9,11 +9,12 @@ function ProfileRouter(props) {
   return (
     <NativeRouter>
         <View style={{flex:1}}>
-            <Header title={props.title}></Header>
+            
+
+        <Header title={props.title}></Header>
             <Routes>
                 <Route exact path='*' element={<props.com/>}/>
                 <Route exact path='/profile' element={<Profile/>}/>
-
             </Routes>
 
             

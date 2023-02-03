@@ -14,10 +14,12 @@ export class ChargesService {
         data: createChargeDto,
       });
     } catch (error) {
-      return new HttpException(
-        'couldnt create this charge',
-        HttpStatus.BAD_REQUEST,
-      );
+      console.log(error)
+
+      // return new HttpException(
+      //   'couldnt create this charge',
+      //   HttpStatus.BAD_REQUEST,
+      // );
     }
   }
 

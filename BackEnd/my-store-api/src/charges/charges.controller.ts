@@ -12,7 +12,7 @@ export class ChargesController {
     return this.chargesService.create(createChargeDto);
   }
 
-  @Post('get_charges')
+  @Get()
   findAll(@Body() id:string) {
     return this.chargesService.findAll(id);
   }

@@ -57,7 +57,7 @@ function AllProducts() {
         <View style={{flex:1,alignItems:'center',justifyContent:'center',}}>
             <TouchableNativeFeedback onPress= {()=>{navigate('/create')}} >
               <View>
-              <MaterialIcons name='add-shopping-cart' size={70} style={{color:'dodgerblue'}}/>
+              <MaterialIcons name='add-shopping-cart' size={50} style={{color:'dodgerblue'}}/>
               </View>
             </TouchableNativeFeedback>
         </View> 

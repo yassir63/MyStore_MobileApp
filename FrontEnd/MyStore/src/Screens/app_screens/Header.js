@@ -1,17 +1,21 @@
-import React from 'react'
+import {React,useContext} from 'react'
 import { View ,Text , StyleSheet ,TouchableNativeFeedback} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { useNavigate } from 'react-router-native'
+import { AuthContext } from '../../../src/Context/AuthContext';
+
 
 function Header(props) {
   const navigate = useNavigate();
+  const {signout} = useContext(AuthContext)
+
   return (
     <SafeAreaView style={ style.container}>
 
       <View style={ style.header}>
-        <TouchableNativeFeedback onPress={()=>console.log('logout')}>
+        <TouchableNativeFeedback onPress={()=>signout({navigate})}>
           <View style={style.cont1}>
             <SimpleLineIcons name='logout' size={30} style={{color:'dodgerblue'}}></SimpleLineIcons>
           </View>
@@ -29,7 +33,8 @@ function Header(props) {
 }
 const style = StyleSheet.create({
   container:{
-    height:'10%'
+    height:'10%',
+    backgroundColor:'white'
   },
   header:{
     flex:1,
