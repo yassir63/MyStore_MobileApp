@@ -139,72 +139,71 @@ export function LogIn({ navigation }) {
     const {signin} = useContext(AuthContext)
     const [user,setUser] = useState({})
   // added by ahmed
-  useEffect(()=>{
-    GoogleSignin.configure({
-        webClientId:'494290176727-pqvgtp4lmggi88vqen861gt3328u4dlr.apps.googleusercontent.com',
-        offlineAccess:true,
-        forceCodeForRefreshToken:true
-    });
-    isSignedIn()
-},[])
-// added by ahmed
-const signIn = async()=> {
-  try {
-      await GoogleSignin.hasPlayServices();
-      const unserInfo = await GoogleSignin.signIn();
-      console.log('done',unserInfo);
-      setUser(unserInfo)
-  } catch (error) {
-      console.log('Erreur ',error.message);
-      if(error.code===statusCodes.SIGN_IN_CANCELLED){
-          console.log('user concelled the login flow');
-      }else if(error.code===statusCodes.IN_PROGRESS){
-          console.log('Signing in');
-      }else if(error.code===statusCodes.PLAY_SERVICES_NOT_AVAILABLE){
-          console.log('PLAY SERVICES NOT AVAILABLE...');
-      }else{
-          console.log('Something went wrong...');
-      }
-  }
-}
+//   useEffect(()=>{
+//     GoogleSignin.configure({
+//         webClientId:'494290176727-pqvgtp4lmggi88vqen861gt3328u4dlr.apps.googleusercontent.com',
+//         offlineAccess:true,
+//         forceCodeForRefreshToken:true
+//     });
+//     isSignedIn()
+// },[])
+// const signIn = async()=> {
+//   try {
+//       await GoogleSignin.hasPlayServices();
+//       const unserInfo = await GoogleSignin.signIn();
+//       console.log('done',unserInfo);
+//       setUser(unserInfo)
+//   } catch (error) {
+//       console.log('Erreur ',error.message);
+//       if(error.code===statusCodes.SIGN_IN_CANCELLED){
+//           console.log('user concelled the login flow');
+//       }else if(error.code===statusCodes.IN_PROGRESS){
+//           console.log('Signing in');
+//       }else if(error.code===statusCodes.PLAY_SERVICES_NOT_AVAILABLE){
+//           console.log('PLAY SERVICES NOT AVAILABLE...');
+//       }else{
+//           console.log('Something went wrong...');
+//       }
+//   }
+// }
+
+// // added by ahmed
+// const isSignedIn = async()=>{
+//   const isSignedIn = await GoogleSignin.isSignedIn();
+//   if(!!isSignedIn){
+//       getCurrentUserInfo();
+//   }else{
+//       console.log('Please login');
+//   }
+// };
 
 // added by ahmed
-const isSignedIn = async()=>{
-  const isSignedIn = await GoogleSignin.isSignedIn();
-  if(!!isSignedIn){
-      getCurrentUserInfo();
-  }else{
-      console.log('Please login');
-  }
-};
-
-// added by ahmed
-const getCurrentUserInfo = async ()=>{
-  try {
-      const userInfo = GoogleSignin.signInSilently();
-      console.log('User into edit',user);
-      setUser(userInfo);
-  } catch (error) {
-      if(error.code===statusCodes.SIGN_IN_REQUIRED){
-          alert('user not signed in yet');
-          console.log('user not signed in yet');
-      }else{
-          alert('something went wrong...');
-          console.log('something went wrong...');
-      }
-  }
-}
+// const getCurrentUserInfo = async ()=>{
+//   try {
+//       const userInfo = GoogleSignin.signInSilently();
+//       console.log('User into edit',user);
+//       setUser(userInfo);
+//   } catch (error) {
+//       if(error.code===statusCodes.SIGN_IN_REQUIRED){
+//           alert('user not signed in yet');
+//           console.log('user not signed in yet');
+//       }else{
+//           alert('something went wrong...');
+//           console.log('something went wrong...');
+//       }
+//   }
+// }
 
   // added by ahmed
-  const signOut = async()=>{
-    try {
-        await GoogleSignin.revokeAccess();
-        await GoogleSignin.signOut();
-        setUser({})
-    } catch (error) {
-        console.error(error);
-    }
-};
+//   const signOut = async()=>{
+//     try {
+//         await GoogleSignin.revokeAccess();
+//         await GoogleSignin.signOut();
+//         setUser({})
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 
 
 
@@ -289,7 +288,7 @@ const getCurrentUserInfo = async ()=>{
                   New Here?</Text>
             </TouchableOpacity>
             
-            <View>
+            {/* <View>
             {!user.idToken? 
                 <GoogleSigninButton
                     style = {{width: 192, height:50}}
@@ -301,7 +300,7 @@ const getCurrentUserInfo = async ()=>{
                     <Test>Signout</Test>
                 </TouchableOpacity>
                 }
-            </View>
+            </View> */}
         </View>
         
         </KeyboardAvoidingView>
